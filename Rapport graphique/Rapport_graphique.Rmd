@@ -3,6 +3,9 @@ title: "Rapport graphiques"
 author: "SCHMITT Hadrien"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  pdf_document:
+    toc: true
+    toc_depth: '3'
   html_document:
     code_folding: hide
     fig_caption: true
@@ -12,9 +15,6 @@ output:
     toc_float:
       collapsed: true
       smooth_scroll: true
-  pdf_document:
-    toc: true
-    toc_depth: '3'
 bibliography: biblio/biblio1.bib
 csl: "biblio/isara-iso-690.csl"
 ---
@@ -29,7 +29,7 @@ library(dplyr)
 ```
 
 ```{r logo, echo=FALSE, out.width = '70%', fig.align = "center", fig.cap="Fig. 1: Numérique dans un monde futuriste"}
-knitr::include_graphics("image.webp")
+knitr::include_graphics("image.png")
 ```
 
 # Introduction
