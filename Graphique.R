@@ -1,4 +1,4 @@
-#des graphiques de base avec R
+########des graphiques de base avec R######
 
 iris
 hist(iris$Sepal.Length)
@@ -15,7 +15,9 @@ par(mfrow=c(1,2))
 boxplot(iris$Petal.Length~iris$Species)
 stripchart(iris$Petal.Length~iris$Species)
 
-#ggplot2
+
+
+##########ggplot2#######
 
 library(ggplot2)
 #boxplot
@@ -42,23 +44,6 @@ ggplot(data=iris,
 library(dplyr)
 data("starwars")
 starwars
-data("diamonds")
-diamonds
-
-espece = starwars$homeworld == "Tatooine"
-boxplot("starwars")
-ggplot(data=starwars, 
-       mapping=aes(x=species, y=height))+
-  geom_point()+ 
-  theme_minimal() 
-
-#format boxplot
-boxplot("starwars")
-ggplot(data=starwars, 
-       mapping=aes(x= gender, y=height, fill = species ))+
-  geom_boxplot()+ 
-  theme_minimal()
-  
 
 #format violon
 boxplot("starwars")
