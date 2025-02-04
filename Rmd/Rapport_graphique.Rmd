@@ -1,0 +1,105 @@
+---
+title: "Rapport graphiques"
+author: "SCHMITT Hadrien"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    fig_caption: true
+    number_sections: true
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+  pdf_document:
+    toc: true
+    toc_depth: '3'
+bibliography: biblio/biblio1.bib
+csl: "biblio/isara-iso-690.csl"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(ade4)
+library(FactoMineR)
+library(ggplot2)
+library(dplyr)
+```
+
+```{r logo, echo=FALSE, out.width = '70%', fig.align = "center", fig.cap="Fig. 1: Numérique dans un monde futuriste"}
+knitr::include_graphics("image.webp")
+```
+
+# Introduction
+
+
+Test de citation : [@buglife_buglife_2024]
+
+
+# Les données
+
+Ce jeux de donnée provient de la librairie dplyr et contient des informations sur des personnages de Starwars !
+
+## Imports
+
+```{r imports, echo=TRUE, eval=TRUE}
+starwars
+```
+
+## Présentation
+
+Nous disposons de données sur ... :
+
+```{r sites, echo=TRUE, eval=TRUE}
+head(starwars)
+```
+
+Vous pouvez aussi intégrer du R dans le texte comme dans la phrase suivante. Nous disposons de `r ncol(starwars)` caractéristiques et `r nrow(starwars)` personnages.
+
+# Analyses
+
+## Analyses préliminaires
+
+
+```{r graph1, echo=TRUE, eval=TRUE, fig.height = 10, fig.width = 10, fig.align = "center", fig.cap="Fig 2: Barplot"}
+
+ggplot(data=starwars, 
+       mapping=aes(x= gender, y=height, fill = species ))+
+  geom_violin(scale = "area")+ 
+  theme_minimal()+
+  geom_hline(yintercept=175, color="orange", size=1) + 
+  geom_vline(xintercept=2, color="orange", size=1)+
+  annotate("segment", x = 1, xend = 4, y = 15, yend = 175, colour = "blue", size=3, alpha=0.8, arrow=arrow())
+
+```
+
+On remarque que le wookie est l'espèce la plus grande parmis l'ensemble des espèces. De plus, nous pouvons voir que la majorité des tailles du genre femme sont plus petites que le reste des tailles.
+
+
+```{r graph2, echo=TRUE, eval=TRUE, fig.height = 10, fig.width = 10, fig.align = "center", fig.cap="Fig 2: Barplot"}
+
+ggplot(data=starwars, 
+       mapping=aes(x= gender, y= mass, fill = species ))+
+  geom_violin(scale = "area")+ 
+  theme_minimal()
+```
+
+Concernant la masse par rapport aux espèces, nous pouvons constater que les humains masculins ont une masse plus importante que les femmes humaines. Malgrès leur grande taille les wookies n'ont pas une masse très élevée
+
+|
+
+# Interpretations et Conclusion
+
+On constate que le "wookiee" est l'espèce la plus grande avec une hauteur moyenne de `mean(starwars$species = "Wookiee")`
+
+# Références
+
+## Liens
+
+ISARA : <https://isaranet.fr/> consulté le ...
+
+## Bibliographie
+
+Liste des publications :
