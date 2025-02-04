@@ -2,10 +2,12 @@
 
 **Bonjour, voici le dépot de Hadrien SCHMITT**
 
-#Depot graphique
-library(dplyr)
+# Depot graphique :
+
+```library(dplyr)
 data("starwars")
 starwars
+```
 
 ```{r.graphique}
 ggplot(data=starwars, 
